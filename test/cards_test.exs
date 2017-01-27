@@ -16,9 +16,11 @@ defmodule CardsTest do
   end
 
   test "shuffle" do
-    shuffle = Cards.shuffle(Cards.create_deck)
+    deck = Cards.create_deck
+    shuffle = Cards.shuffle(deck)
 
     assert Enum.count(shuffle) == 20
+    refute deck == shuffle
   end
 
   test "deal" do
